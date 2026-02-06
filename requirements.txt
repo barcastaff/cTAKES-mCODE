@@ -1,0 +1,6 @@
+# cTAKES-mCODE Python Dependencies
+# Python 3.9+ required
+
+PyYAML>=6.0              # Configuration file parsing
+dkpro-cassis>=0.7.0      # XMI parsing
+requests>=2.31.0         # HTTP client for Ollama integration

@@ -1,8 +1,11 @@
 apache-ctakes-6.0.0/
-
 .DS_Store
-
 .github/
-
+.venv/
+.tmp/
 # Exploratory scripts
 exploratory-scripts/
+# UMLS API Key (keep private)
+.umls_key
+# Testin examples
+examples/

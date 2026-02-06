@@ -1,0 +1,19 @@
+// cTAKES-mCODE Extraction Pipeline
+// Uses DefaultRelationTemporalPipeline for entity, relation, and temporal extraction
+// 
+// This pipeline extracts:
+// - Entities: Diseases, Medications, Procedures, Anatomical Sites
+// - Relations: LOCATION_OF (body site mapping), DEGREE_OF (modifiers)
+// - Temporal: Time mentions, event ordering
+//
+// Based on empirical validation (January 2026):
+// - 25 diseases, 6 medications, 25 procedures, 8 anatomical sites extracted
+// - 16 LOCATION_OF relations for accurate body site mapping
+// - 6 time mentions, 84 events for temporal context
+
+// Load the base pipeline
+load DefaultRelationTemporalPipeline
+
+// Output configuration
+set OutputDirectory=$OutputDirectory
+set OutputFormat=xmi

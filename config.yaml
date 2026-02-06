@@ -1,0 +1,52 @@
+# cTAKES-mCODE Configuration
+
+# Apache cTAKES Package Configuration
+ctakes:
+  installation_path: "./apache-ctakes-6.0.0"
+  
+  # UMLS API Key (required for dictionary lookup)
+  # Stored in a separate file for security
+  umls_api_key_file: ".umls_key"
+
+# IO Paths Configuration
+paths:
+  input_dir: "./examples/input"
+  xmi_output_dir: "./examples/output/xmi"
+  csv_output_dir: "./examples/output/csv" # These are the mCODE extraction outputs
+
+# cTAKES Pipeline Configuration
+pipeline:
+  # See official documentation for more options
+  name: "DefaultRelationTemporalPipeline"
+
+# Output Configuration
+output:
+  # Generate additional .csv files with UMLS CUI codes when true
+  include_cuis_file: false
+
+# LLM Integration
+llm:
+  # Enable LLM disambiguation for ambiguous cases
+  enable_disambiguation: true
+  
+  # Number of sentences (+-) around date mention to include as context
+  sentence_window: 1
+  
+  # Ollama configuration
+  ollama:
+    # Base URL for Ollama API
+    base_url: "http://localhost:11434"
+    
+    # Model to use for disambiguation
+    model: "deepseek-r1:1.5b"
+    
+    # Enable reasoning/thinking for DeepSeek R1 models
+    # When enabled, model thinks silently in background (no terminal output)
+    # Disable for faster responses (may reduce accuracy slightly)
+    enable_thinking: false
+    
+    # Timeout for LLM requests (seconds)
+    timeout: 30
+    
+    # Temperature for generation (0.0 = deterministic, 1.0 = creative)
+    temperature: 0.2
